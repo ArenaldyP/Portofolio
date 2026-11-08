@@ -5,12 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCertificates("all");
 });
 
-// Toggle Menu Mobile
+// Toggle Menu Mobile & Tutup Otomatis Saat Link Diklik
 const mobileMenuBtn = document.getElementById("mobile-menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
-if (mobileMenuBtn) {
+if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
+    });
+
+    // Tutup menu mobile otomatis ketika salah satu link navigasi diklik
+    mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+        });
     });
 }
 
@@ -58,7 +65,7 @@ if (terminalInput) {
 }
 
 // ==========================================
-// 2. DATA & LOGIKA PROYEK UNGGULAN (10 SLOT)
+// 2. DATA & LOGIKA PROYEK UNGGULAN
 // ==========================================
 const INITIAL_VISIBLE_COUNT = 6; // Menampilkan 6 kartu awal agar rapi
 let currentProjectFilter = "all";
@@ -84,11 +91,11 @@ const projectsData = [
         category: "datascience",
         badge: "Data Analyst & Network Security",
         title: "Klasifikasi Tipe Serangan Siber",
-        summary: "Pengelohan data dengan klasifikasi tipe serangan siber (DDOS, Malware, Intrusion) menggunakan dataset log jaringan.",
+        summary: "Pengolahan data dengan klasifikasi tipe serangan siber (DDOS, Malware, Intrusion) menggunakan dataset log jaringan.",
         tech: ["Python", "Scikit-Learn", "pandas", "NLP", "Feature Engineering", "RandomForest"],
         details: `
-            <p><strong>Latar Belakang:</strong>Dengan banyaknya tipe serangan siber, dalam menangani serangan juga berbeda-beda berdasarkan tipe serangannya </p>
-            <p><strong>Solusi & Arsitektur:</strong> Melakukan beberapa proses data preprocessing agar data layak digunakan dalam algoritma randoforest</p>
+            <p><strong>Latar Belakang:</strong> Dengan banyaknya tipe serangan siber, dalam menangani serangan juga berbeda-beda berdasarkan tipe serangannya.</p>
+            <p><strong>Solusi & Arsitektur:</strong> Melakukan beberapa proses data preprocessing agar data layak digunakan dalam algoritma Random Forest.</p>
             <p><strong>Hasil:</strong> Pipeline yang bersih, terukur, dan terdokumentasi untuk memprediksi tipe serangan siber secara optimal.</p>
         `,
         github: "https://github.com/ArenaldyP/Klasifikasi-Tipe-Serangan-Siber"
@@ -98,14 +105,14 @@ const projectsData = [
         category: "security",
         badge: "Threat Intelligence",
         title: "Simulasi Serangan APT",
-        summary: "Simulasi teknik APT (Advancede Persistent Threat)  yang menargetkan berbagai sektor vital, baik swasta maupun pemerintahan.",
-        tech: ["Python", "C++", "C", "Kali Linux", "Windows", "Php", "Ruby", "Hacking"],
+        summary: "Simulasi teknik APT (Advanced Persistent Threat) yang menargetkan berbagai sektor vital, baik swasta maupun pemerintahan.",
+        tech: ["Python", "C++", "C", "Kali Linux", "Windows", "PHP", "Ruby", "Hacking"],
         details: `
-            <p><strong>Latar Belakang:</strong> Serangan APT adalah actor yang paling berbahaya karena memiliki kemampuan, sumber daya dan waktu yang melimpah sehingga sangat penting untuk memahami proses dan cara kerja group tersebut.</p>
-            <p><strong>Solusi & Arsitektur:</strong> Simulasi ini mencakup alat yang ditulis, server C2, backdoor, teknik eksploitasi, stager, bootloader, dan berbagai alat lainnya yang mungkin digunakan penyerang dalam serangan nyata. Alat dan TTPs ini disimulasikan di sini. Saya mengandalkan informasi dari Palo Alto Networks Unit 42, Kaspersky, Microsoft, Cisco, Trellix, CrowdStrike, dan WithSecure untuk mendapatkan detail yang diperlukan dalam membuat simulasi ini.</p>
-            <p><strong>Hasil:</strong>Dengan memahami proses APT, kita dapat informasi berharga mengenai TTP (Tactics, Technique, Procedure) yang digunakan untuk meningkatkan sistem pertahanan dalam organisasi </p>
+            <p><strong>Latar Belakang:</strong> Serangan APT adalah aktor yang paling berbahaya karena memiliki kemampuan, sumber daya dan waktu yang melimpah sehingga sangat penting untuk memahami proses dan cara kerja grup tersebut.</p>
+            <p><strong>Solusi & Arsitektur:</strong> Simulasi ini mencakup alat yang ditulis, server C2, backdoor, teknik eksploitasi, stager, bootloader, dan berbagai alat lainnya yang mungkin digunakan penyerang dalam serangan nyata. Alat dan TTPs ini disimulasikan di sini berdasarkan referensi dari Palo Alto Networks Unit 42, Kaspersky, Microsoft, Cisco, Trellix, CrowdStrike, dan WithSecure.</p>
+            <p><strong>Hasil:</strong> Dengan memahami proses APT, kita mendapat informasi berharga mengenai TTP (Tactics, Technique, Procedure) yang digunakan untuk meningkatkan sistem pertahanan dalam organisasi.</p>
         `,
-        github: "https://github.com/"
+        github: "https://github.com/ArenaldyP"
     },
     {
         id: 4,
@@ -116,8 +123,8 @@ const projectsData = [
         tech: ["Python", "Malware Analyst", "Hacking", "Reverse Engineering"],
         details: `
             <p><strong>Latar Belakang:</strong> Dalam tahapan awal malware analisis yakni tahapan analisis statis malware untuk menentukan jenis file, packer, enkripsi, dan lainnya yang biasa digunakan pengembang malware.</p>
-            <p><strong>Solusi & Arsitektur:</strong> Analisis statis merupakan langkah pertama dalam analisis malware analisis ini memungkinkan kita untuk mengekstrak informasi berharga dari biner dan membantu dalam membandingkan dan mengklasifikasikan sampel malware. Proyek ini memperkenalkan kita pada berbagai alat dan teknik, yang dengannya berbagai aspek biner malware dapat ditentukan tanpa menjalankannya.</p>
-            <p><strong>Hasil:</strong> Dari kumpulan skrip ini kita belajar mengenai informasi malware tanpa menjalankannya.</p>
+            <p><strong>Solusi & Arsitektur:</strong> Analisis statis memungkinkan kita mengekstrak informasi berharga dari biner dan membantu dalam membandingkan serta mengklasifikasikan sampel malware tanpa menjalankannya.</p>
+            <p><strong>Hasil:</strong> Dari kumpulan skrip ini kita mempelajari struktur dan karakteristik informasi malware secara aman tanpa mengeksekusi payload-nya.</p>
         `,
         github: "https://github.com/ArenaldyP/Statik-Analisis-Malware"
     },
@@ -126,16 +133,15 @@ const projectsData = [
         category: "security",
         badge: "Malware Development",
         title: "Malware Development Teknik",
-        summary: "Kumpulan proses dan teknik dalam mengembangkan malware mulai dari teknik penghindaran, enkripsi dan lainnya. ",
-        tech: ["Python", "C", "Hacking", "System Development", "Defense Envasion"],
+        summary: "Kumpulan proses dan teknik dalam mengembangkan malware mulai dari teknik penghindaran, enkripsi dan lainnya.",
+        tech: ["Python", "C", "Hacking", "System Development", "Defense Evasion"],
         details: `
-            <p><strong>Latar Belakang:</strong> Malware adalah software berbahaya yang melakukan hal yang dekstruktif kepada sistem, dengan mengetahui proses dan teknik pengembangannya kita tahu apa yang dilakukan malware dalam sistem dan cara penanganannya.</p>
-            <p><strong>Solusi & Arsitektur:</strong> Proyek ini adalah proyek dibuat untuk tujuan edukasi dan penelitian keamanan siber, dilarang digunakan untuk aktivitas illegal.</p>
-            <p><strong>Hasil:</strong> Mengetahui dan paham teknik dan proses pengembangan malware untuk penelitian.</p>
+            <p><strong>Latar Belakang:</strong> Malware adalah software berbahaya yang melakukan hal destruktif kepada sistem. Dengan mengetahui proses dan teknik pengembangannya, kita memahami cara kerja malware di dalam sistem dan cara penanganannya.</p>
+            <p><strong>Solusi & Arsitektur:</strong> Proyek ini dibuat khusus untuk tujuan edukasi dan penelitian keamanan siber (Blue Team / Malware Research).</p>
+            <p><strong>Hasil:</strong> Memahami teknik penghindaran pertahanan (Defense Evasion) dan proses pengembangan malware guna memperkuat aturan deteksi keamanan.</p>
         `,
         github: "https://github.com/ArenaldyP/Malware-Development"
     }
-    
 ];
 
 function renderProjects(filter) {
@@ -154,12 +160,12 @@ function renderProjects(filter) {
     grid.innerHTML = visibleItems.map(proj => `
         <div class="card-hover rounded-2xl bg-slate-900/80 border border-slate-800 p-6 flex flex-col justify-between space-y-5 animate-fade-in">
             <div class="space-y-3">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between gap-2">
                     <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                         ${proj.badge}
                     </span>
-                    <a href="${proj.github}" target="_blank" class="text-slate-400 hover:text-white transition" title="Lihat Source Code">
-                        <i data-lucide="github" class="w-4 h-4"></i>
+                    <a href="${proj.github}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 transition" title="Buka Repository GitHub">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
                     </a>
                 </div>
                 <h3 class="text-lg font-bold text-white leading-snug">${proj.title}</h3>
@@ -170,10 +176,18 @@ function renderProjects(filter) {
                 <div class="flex flex-wrap gap-1.5">
                     ${proj.tech.map(t => `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">${t}</span>`).join("")}
                 </div>
-                <button onclick="openProjectModal(${proj.id})" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-slate-200 font-mono text-xs font-semibold transition flex items-center justify-center gap-1.5">
-                    <span>Baca Studi Kasus</span>
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                </button>
+                
+                <!-- Dua Tombol Aksi: Baca Studi Kasus & Link GitHub -->
+                <div class="grid grid-cols-2 gap-2.5 pt-1">
+                    <button onclick="openProjectModal(${proj.id})" class="py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-slate-200 font-mono text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                        <span>Studi Kasus</span>
+                    </button>
+                    <a href="${proj.github}" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-slate-950 border border-emerald-500/30 font-mono text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
             </div>
         </div>
     `).join("");
@@ -208,11 +222,12 @@ function toggleShowAllProjects() {
 }
 
 // ==========================================
-// 3. DATA & LOGIKA SERTIFIKAT (10 SLOT)
+// 3. DATA & LOGIKA SERTIFIKAT
 // ==========================================
 let currentCertFilter = "all";
 let showAllCertificates = false;
 
+// Catatan: Ganti isi 'credentialUrl' di bawah ini dengan link verifikasi asli sertifikat Anda (misal link Credly / freeCodeCamp / Udemy)
 const certificatesData = [
     {
         id: 101,
@@ -221,6 +236,7 @@ const certificatesData = [
         issuer: "freeCodeCamp",
         date: "2025",
         credentialId: "FCC-DAP-2025",
+        credentialUrl: "https://www.freecodecamp.org/certification/fcc53436e19-b0e6-4c93-9691-a37caeb5b4ce/data-analysis-with-python-v7",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/f6f330ef6c0a625b9f2dc38d5dea9d46e08e5587/Sertifikat/Cert%20Data.png",
         skills: ["Python", "pandas", "NumPy", "Data Analysis"]
     },
@@ -231,6 +247,7 @@ const certificatesData = [
         issuer: "CISCO Networking Academy",
         date: "2026",
         credentialId: "CISCO-ICS-2026",
+        credentialUrl: "https://www.credly.com/badges/942f3a7a-8a19-48e6-8e3f-1784d6abf344/public_url",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20Industrial.png",
         skills: ["Risk Assessment", "CyberAttack Analysis", "OT Security", "Zero Trust"]
     },
@@ -241,6 +258,7 @@ const certificatesData = [
         issuer: "Red Team Leaders",
         date: "2025",
         credentialId: "RTL-CCEP-2025",
+        credentialUrl: "https://courses.redteamleaders.com/exam-completion/199b1d3a749721aa",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/CCEP.png",
         skills: ["Cybersecurity", "Security Awareness", "Red Teaming Concepts"]
     },
@@ -251,8 +269,9 @@ const certificatesData = [
         issuer: "APIsec University",
         date: "2024",
         credentialId: "AU-APT-2024",
+        credentialUrl: "https://www.credly.com/badges/d93c035f-b863-4a87-9f12-ea574d5e058b/public_url",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20API.png",
-        skills: ["API Penetration Testing", "API Security", "Application Security", "Application Security Testing", "Bug Bounty Hunting", "Hacking"]
+        skills: ["API Penetration Testing", "API Security", "Application Security", "Bug Bounty Hunting", "Hacking"]
     },
     {
         id: 105,
@@ -261,6 +280,7 @@ const certificatesData = [
         issuer: "Udemy",
         date: "2024",
         credentialId: "UD-EH-2024",
+        credentialUrl: "https://www.udemy.com/certificate/UC-9928c6c0-6590-48af-88e2-23a76cdfce98/",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20Hacking%20Udemy.png",
         skills: ["Hacking", "Penetration Testing"]
     },
@@ -271,8 +291,9 @@ const certificatesData = [
         issuer: "CISCO",
         date: "2023",
         credentialId: "CISCO-CEH-2023",
+        credentialUrl: "https://www.credly.com/badges/6bca4b03-6b87-4b3a-9405-ac4affbbb023/public_url",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20Ethical%20Hacker.png",
-        skills: ["Ethical Hacker", "Exploiting Applications", "Exploiting Networks", "IoT Security", "Penetraion Testing", "Pentesting Tools", "Reporting", "Social Engineering", "Vulnerability Assesment", "Vulnerability Scanning"]
+        skills: ["Ethical Hacker", "Exploiting Applications", "Exploiting Networks", "IoT Security", "Penetration Testing", "Pentesting Tools", "Reporting", "Social Engineering", "Vulnerability Assessment"]
     },
     {
         id: 107,
@@ -281,6 +302,7 @@ const certificatesData = [
         issuer: "CISCO",
         date: "2023",
         credentialId: "CISCO-JCA-2023",
+        credentialUrl: "https://www.credly.com/badges/b9a51e67-e24a-443c-9bf3-d60f8b872032/public_url",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20Cybersecurity%20Analyst.png",
         skills: ["System and Network Defense", "Linux", "Windows Security", "Application Security", "Cloud Security", "Network Infrastructure Security"]
     },
@@ -291,6 +313,7 @@ const certificatesData = [
         issuer: "CISCO",
         date: "2023",
         credentialId: "CISCO-CTM-2023",
+        credentialUrl: "https://www.credly.com/badges/ad86c4cb-f150-46d7-a0b9-675fb50788f0/public_url",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20Cyber%20Threat%20Management.png",
         skills: ["Disaster Recovery", "Incident Response", "Risk Assessments", "Threat Intelligence Services", "CVSS"]
     },
@@ -301,6 +324,7 @@ const certificatesData = [
         issuer: "CISCO",
         date: "2023",
         credentialId: "CISCO-ND-2023",
+        credentialUrl: "https://www.credly.com/badges/24d567fc-4e9c-4e7b-905d-f18ba8bb9cb7/public_url",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20Network%20Defense.png",
         skills: ["Network Hardening", "Defense-in-Depth", "System and Network Defense", "Access Controls"]
     },
@@ -311,6 +335,7 @@ const certificatesData = [
         issuer: "Udemy",
         date: "2022",
         credentialId: "UD-PPB-2022",
+        credentialUrl: "https://www.udemy.com/certificate/UC-6fd0ece8-c8ea-4cee-8149-704f8d52cec8/",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20Python%20Pro%20Bootcamp%202022.png",
         skills: ["Python"]
     },
@@ -321,6 +346,7 @@ const certificatesData = [
         issuer: "Udemy",
         date: "2023",
         credentialId: "UD-ISO-2023",
+        credentialUrl: "https://www.udemy.com/certificate/UC-036eb5e7-9a76-42e8-bf93-666293a64a29/",
         image: "https://raw.githubusercontent.com/R3nalDy/Sertifikat/refs/heads/main/Sertifikat/Cert%20ISO.png",
         skills: ["ISO/IEC 27001:2022"]
     }
@@ -422,9 +448,17 @@ function openProjectModal(id) {
         <div class="pt-3 border-t border-slate-800 flex flex-wrap gap-2">
             ${proj.tech.map(t => `<span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-emerald-400">${t}</span>`).join("")}
         </div>
+        <div class="pt-4 border-t border-slate-800 flex justify-end">
+            <a href="${proj.github}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-semibold transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+                <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+                <span>Buka Repository di GitHub</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
     `;
     modal.classList.remove("hidden");
     modal.classList.add("flex");
+    lucide.createIcons();
 }
 
 function openCertModal(id) {
@@ -433,17 +467,25 @@ function openCertModal(id) {
 
     modalCategory.textContent = `${cert.issuer} • ${cert.date}`;
     modalTitle.textContent = cert.title;
+
+    const verifyLink = cert.credentialUrl || cert.image;
+
     modalBody.innerHTML = `
         <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-950">
             <img src="${cert.image}" alt="${cert.title}" class="w-full max-h-96 object-contain mx-auto">
         </div>
-        <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-2">
-            <span>Credential ID: ${cert.credentialId}</span>
-            <span class="text-emerald-400">Verified Credential</span>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-800">
+            <span class="text-xs font-mono text-slate-400">Credential ID: <strong class="text-slate-200">${cert.credentialId}</strong></span>
+            <a href="${verifyLink}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-semibold transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <span>Verified Credential</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
         </div>
     `;
     modal.classList.remove("hidden");
     modal.classList.add("flex");
+    lucide.createIcons();
 }
 
 function closeModal() {
